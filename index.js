@@ -1,12 +1,19 @@
 const { Telegraf } = require("telegraf");
 const config = require("./config");
 const datosClima = require("./service");
-
+/* inicio del bot */
 const bot = new Telegraf(config.token_bot);
 bot.command("start", (ctx) => {
   Bienvenida(ctx);
 });
 
+/* escucha para saber si se coloco un sticker */
+bot.on("sticker", (ctx) => {
+  bot.telegram.sendMessage(
+    ctx.chat.id,
+    "Haz usado un sticker, aunque no sé cual es 😉"
+  );
+});
 
 /* escucha el texto del usuario para mostrar el clima del ciudad */
 bot.on("text", (ctx) => {
@@ -16,7 +23,7 @@ bot.on("text", (ctx) => {
       bot.telegram.sendMessage(
         ctx.chat.id,
         `Así se encuentra ${datos.name} actualmente: 👀
-        Estado: ${datos.weather[0].description} 
+        Estado: ${datos.weather[0].description} 🌎
         Temperatura:${datos.main.temp} C°🌡
         Temperatura máxima: ${datos.main.temp_max} C° 🔥
         Temperatura mínima: ${datos.main.temp_min} C° ❄
@@ -37,13 +44,14 @@ Otros datos que te pueden interesar 📌:
     });
 });
 
-/* acciones */
+/* accion de credito */
 bot.action("creditos", (ctx) => {
   ctx.answerCbQuery();
   ctx.reply("Este bot fue creado por @WiliamsIxcoy");
 });
 
-/* funciones */
+/* funcion de bienvenida, para saludar y explicar lo que hace, tambien contiene botones
+para mis redes de linkedin y github */
 async function Bienvenida(ctx) {
   const mensaje = `¡Bienvenido al bot del clima!🚀
 
