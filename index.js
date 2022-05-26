@@ -7,12 +7,6 @@ bot.command("start", (ctx) => {
   Bienvenida(ctx);
 });
 
-bot.action("clima", (ctx) => {
-  ctx.answerCbQuery();
-
-  const menu = "Escribe el nombre la ciudad para saber el clima";
-  bot.telegram.sendMessage(ctx.chat.id, menu);
-});
 
 /* escucha el texto del usuario para mostrar el clima del ciudad */
 bot.on("text", (ctx) => {
@@ -21,11 +15,25 @@ bot.on("text", (ctx) => {
     .then((datos) => {
       bot.telegram.sendMessage(
         ctx.chat.id,
-        `El clima de ${ciudad} es: ${datos.main.temp} C°`
+        `Así se encuentra ${datos.name} actualmente: 👀
+        Estado: ${datos.weather[0].description} 
+        Temperatura:${datos.main.temp} C°🌡
+        Temperatura máxima: ${datos.main.temp_max} C° 🔥
+        Temperatura mínima: ${datos.main.temp_min} C° ❄
+
+Otros datos que te pueden interesar 📌:
+        Humedad: ${datos.main.humidity}% 💧
+        Presión: ${datos.main.pressure} hPa 🗜️ 
+        Viento: ${datos.wind.speed} m/s 🌬
+        Visibilidad: ${datos.visibility} m 👓
+        `
       );
     })
     .catch(() => {
-      bot.telegram.sendMessage(ctx.chat.id, "Lugar no encontrado");
+      bot.telegram.sendMessage(
+        ctx.chat.id,
+        "Lugar no encontrado, por favor revisa la escritura"
+      );
     });
 });
 
@@ -34,37 +42,30 @@ bot.action("creditos", (ctx) => {
   ctx.answerCbQuery();
   ctx.reply("Este bot fue creado por @WiliamsIxcoy");
 });
-/* escuchar */
-bot.hears("Salir", (ctx) => {
-  bot.telegram.sendMessage(ctx.chat.id, "Adios", {
-    reply_markup: {
-      remove_keyboard: true,
-    },
-  });
-});
+
 /* funciones */
 async function Bienvenida(ctx) {
-  const mensaje = `¡Bienvenido al bot del clima!
+  const mensaje = `¡Bienvenido al bot del clima!🚀
 
-Escribe el nombre la ciudad que deseas consultar`;
+Escribe el nombre la ciudad que deseas consultar🔎`;
   bot.telegram.sendMessage(ctx.chat.id, mensaje, {
     reply_markup: {
       inline_keyboard: [
         [
           {
-            text: "Mi Linkedin",
+            text: "Mi Linkedin👨‍💻",
             url: "https://www.linkedin.com/in/wiliams-ixcoy-656074229/",
           },
         ],
         [
           {
-            text: "Mi GitHub",
+            text: "Mi GitHub👨‍💻",
             url: "https://github.com/wiliamsTI",
           },
         ],
         [
           {
-            text: "Créditos",
+            text: "Créditos🔥",
             callback_data: "creditos",
           },
         ],
