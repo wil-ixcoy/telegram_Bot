@@ -23,16 +23,16 @@ bot.on("text", (ctx) => {
       bot.telegram.sendMessage(
         ctx.chat.id,
         `Así se encuentra ${datos.name} actualmente: 👀
-        Estado: ${datos.weather[0].description} 🌎
-        Temperatura:${datos.main.temp} C°🌡
-        Temperatura máxima: ${datos.main.temp_max} C° 🔥
-        Temperatura mínima: ${datos.main.temp_min} C° ❄
+ Estado: ${datos.weather[0].description} 🌎
+ Temperatura:${datos.main.temp} C°🌡
+ Temperatura máxima: ${datos.main.temp_max} C° 🔥
+ Temperatura mínima: ${datos.main.temp_min} C° ❄
 
 Otros datos que te pueden interesar 📌:
-        Humedad: ${datos.main.humidity}% 💧
-        Presión: ${datos.main.pressure} hPa 🗜️ 
-        Viento: ${datos.wind.speed} m/s 🌬
-        Visibilidad: ${datos.visibility} m 👓
+ Humedad: ${datos.main.humidity}% 💧
+ Presión: ${datos.main.pressure} hPa 🗜️ 
+ Viento: ${datos.wind.speed} m/s 🌬
+ Visibilidad: ${datos.visibility} m 👓
         `
       );
     })
