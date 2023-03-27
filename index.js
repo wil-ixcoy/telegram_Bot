@@ -62,19 +62,19 @@ Escribe el nombre la ciudad que deseas consultar🔎`;
         [
           {
             text: "Mi Linkedin👨‍💻",
-            url: "https://www.linkedin.com/in/wiliams-ixcoy-656074229/",
+            url: "https://www.linkedin.com/in/wiliamsixcoy/",
           },
         ],
         [
           {
             text: "Mi GitHub👨‍💻",
-            url: "https://github.com/wiliamsTI",
+            url: "https://github.com/wil-ixcoy",
           },
         ],
         [
           {
             text: "Créditos🔥",
-            callback_data: "creditos",
+            callback_data: "créditos",
           },
         ],
       ],
