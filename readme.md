@@ -25,5 +25,5 @@ Cómo parte de un proyecto personal, se decide crear un bot de telegram, cuya fu
 - Visibilidad 👓
 
 #### ¿Quieres probar el bot?
-Puedes buscarlo en Telegram como @wiliamsTI_bot
-O ingresar desde este link: https://t.me/wiliamsTI_bot
+Puedes buscarlo en Telegram como @weatherByWiliams_bot
+O ingresar desde este link: https://t.me/weatherByWiliams_bot
