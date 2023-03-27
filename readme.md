@@ -7,7 +7,7 @@ Cómo parte de un proyecto personal, se decide crear un bot de telegram, cuya fu
 - Axios
 - API de Telegram
 - API de openWeatherMap
-- Heroku
+- Railway
 
 ## Características:
 
